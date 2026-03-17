@@ -90,11 +90,11 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-bg-main/95 backdrop-blur-md py-3 shadow-sm' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-        <div className="flex items-center">
+        <div className="flex items-center ml-0">
           <img 
             src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
             alt="Mix Construtora" 
-            className={`h-20 md:h-20 lg:h-24 w-auto transition-all duration-500 ${scrolled ? 'brightness-100 h-12 md:h-16' : 'brightness-0 invert'}`}
+            className={`h-10 md:h-20 lg:h-24 w-auto transition-all duration-500 ${scrolled ? 'brightness-100 h-10 md:h-16' : 'brightness-0 invert'}`}
             referrerPolicy="no-referrer"
           />
         </div>
@@ -262,7 +262,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] md:leading-[1.1] mb-4 md:mb-10 text-white"
+              className="text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] md:leading-[1.1] mb-4 md:mb-10 text-white"
             >
               Engenharia sólida para obras que transformam cidades.
             </motion.h1>
