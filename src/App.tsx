@@ -711,7 +711,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="block text-[10px] md:text-xs uppercase tracking-widest font-bold text-teal-deep/40 mb-1 md:mb-2">Telefone / Whatsapp</span>
-                  <p className="text-lg md:text-2xl font-bold text-teal-deep">+55 (98) 8344-4737</p>
+                  <p className="text-lg md:text-2xl font-bold text-teal-deep">(99)98118-9591</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 md:gap-6">
@@ -838,7 +838,7 @@ const Footer = () => {
             <h4 className="text-[10px] md:text-xs uppercase tracking-widest font-bold mb-6 md:mb-10 text-brand-medium">Contato</h4>
             <ul className="space-y-3 md:space-y-5 text-sm md:text-base font-medium opacity-60">
               <li className="flex items-center gap-2 md:gap-3"><MapPin size={14} md:size={16} className="text-brand-medium" /> Bacabal, MA</li>
-              <li className="flex items-center gap-2 md:gap-3"><Phone size={14} md:size={16} className="text-brand-medium" /> +55 98 8344-4737</li>
+              <li className="flex items-center gap-2 md:gap-3"><Phone size={14} md:size={16} className="text-brand-medium" /> (99)98118-9591</li>
               <li className="pt-4 md:pt-6 text-[10px] opacity-40">CNPJ: 00.000.000/0001-00</li>
             </ul>
           </div>
@@ -862,7 +862,7 @@ const Footer = () => {
 const WhatsAppButton = () => {
   return (
     <motion.a
-      href="https://wa.me/559883444737"
+      href="https://wa.me/5599981189591"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
