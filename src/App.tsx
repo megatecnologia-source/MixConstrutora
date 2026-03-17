@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  ChevronDown, 
-  Menu, 
-  X, 
-  ArrowRight, 
-  HardHat, 
-  Truck, 
-  Building2, 
-  Shovel, 
-  CheckCircle2, 
-  Clock, 
-  Users, 
-  ShieldCheck, 
-  Phone, 
-  Mail, 
+import {
+  ChevronDown,
+  Menu,
+  X,
+  ArrowRight,
+  HardHat,
+  Truck,
+  Building2,
+  Shovel,
+  CheckCircle2,
+  Clock,
+  Users,
+  ShieldCheck,
+  Phone,
+  Mail,
   MapPin,
   FileText,
   BarChart3,
@@ -64,8 +64,8 @@ const Navbar = () => {
 
   const navItems: NavItem[] = [
     { label: 'Home', href: '#home' },
-    { 
-      label: 'Institucional', 
+    {
+      label: 'Institucional',
       href: '#institucional',
       children: [
         { label: 'Quem Somos', href: '#quem-somos' },
@@ -73,8 +73,8 @@ const Navbar = () => {
         { label: 'Certificações', href: '#certificacoes' },
       ]
     },
-    { 
-      label: 'Serviços', 
+    {
+      label: 'Serviços',
       href: '#servicos',
       children: [
         { label: 'Urbanização', href: '#servicos' },
@@ -91,9 +91,9 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-bg-main/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center">
-          <img 
-            src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
-            alt="Mix Construtora" 
+          <img
+            src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png"
+            alt="Mix Construtora"
             className={`h-18 md:h-24 w-auto transition-all duration-500 ${scrolled ? 'brightness-100' : 'brightness-0 invert'}`}
             referrerPolicy="no-referrer"
           />
@@ -102,13 +102,13 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            <div 
-              key={item.label} 
+            <div
+              key={item.label}
               className="relative group"
               onMouseEnter={() => setActiveDropdown(item.label)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <a 
+              <a
                 href={item.href}
                 className={`text-sm font-semibold uppercase tracking-widest transition-all duration-500 flex items-center gap-1 ${scrolled ? 'text-teal-deep hover:text-brand-medium' : 'text-white hover:text-white/80'}`}
                 style={{ textShadow: scrolled ? 'none' : '0 1px 3px rgba(0,0,0,0.5)' }}
@@ -116,11 +116,11 @@ const Navbar = () => {
                 {item.label}
                 {item.children && <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />}
               </a>
-              
+
               {item.children && (
                 <AnimatePresence>
                   {activeDropdown === item.label && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
@@ -128,8 +128,8 @@ const Navbar = () => {
                     >
                       <div className="flex flex-col gap-4">
                         {item.children.map((child) => (
-                          <a 
-                            key={child.label} 
+                          <a
+                            key={child.label}
                             href={child.href}
                             className="text-xs uppercase tracking-widest hover:text-brand-medium hover:translate-x-2 transition-all duration-300 font-bold"
                           >
@@ -143,7 +143,7 @@ const Navbar = () => {
               )}
             </div>
           ))}
-          <a 
+          <a
             href="#contato"
             className="btn-primary"
           >
@@ -152,8 +152,8 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
-          className={`lg:hidden transition-colors duration-500 ${scrolled ? 'text-teal-deep' : 'text-white'}`} 
+        <button
+          className={`lg:hidden transition-colors duration-500 ${scrolled ? 'text-teal-deep' : 'text-white'}`}
           onClick={() => setIsOpen(!isOpen)}
           style={{ filter: scrolled ? 'none' : 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }}
         >
@@ -164,7 +164,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -177,8 +177,8 @@ const Navbar = () => {
             <div className="flex flex-col gap-6 mt-10">
               {navItems.map((item) => (
                 <div key={item.label} className="flex flex-col gap-4">
-                  <a 
-                    href={item.href} 
+                  <a
+                    href={item.href}
                     onClick={() => !item.children && setIsOpen(false)}
                     className="text-4xl font-display font-bold uppercase tracking-tighter"
                     style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
@@ -188,8 +188,8 @@ const Navbar = () => {
                   {item.children && (
                     <div className="flex flex-col gap-3 pl-4 border-l-2 border-brand-medium/30">
                       {item.children.map((child) => (
-                        <a 
-                          key={child.label} 
+                        <a
+                          key={child.label}
                           href={child.href}
                           onClick={() => setIsOpen(false)}
                           className="text-xl font-medium text-white/80"
@@ -222,9 +222,9 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source 
-            src="https://res.cloudinary.com/dplhygs4v/video/upload/v1773694818/VIDEO_HERO_SITE_MIX_CONSTRUTORA_-_FERNANDO_1_crlai1.mp4" 
-            type="video/mp4" 
+          <source
+            src="https://res.cloudinary.com/dplhygs4v/video/upload/v1773694818/VIDEO_HERO_SITE_MIX_CONSTRUTORA_-_FERNANDO_1_crlai1.mp4"
+            type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
@@ -233,14 +233,14 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 md:pt-40">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="max-w-2xl"
         >
           <div className="max-w-xl">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -248,7 +248,7 @@ const Hero = () => {
             >
               Engenharia & Infraestrutura
             </motion.span>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
@@ -262,14 +262,14 @@ const Hero = () => {
               transition={{ delay: 0.9 }}
               className="flex flex-col sm:flex-row gap-6"
             >
-              <a 
+              <a
                 href="#contato"
                 className="btn-primary bg-white !text-brand-dark hover:!bg-brand-action hover:!text-white flex items-center justify-center gap-2 group"
               >
                 Falar com um Consultor
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a 
+              <a
                 href="#portfolio"
                 className="px-10 py-5 text-sm font-bold uppercase tracking-widest text-white border-2 border-white/30 rounded-[24px] hover:bg-white/10 transition-all flex items-center justify-center"
               >
@@ -282,7 +282,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:block">
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="flex flex-col items-center gap-2 text-white/40 text-[10px] uppercase tracking-widest font-bold"
@@ -337,7 +337,7 @@ const Services = () => {
   return (
     <section id="servicos" className="pt-20 pb-32 bg-white diagonal-section">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -351,9 +351,9 @@ const Services = () => {
             </h2>
           </div>
           <div className="flex flex-col items-start gap-0">
-            <img 
-              src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
-              alt="Mix Construtora" 
+            <img
+              src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png"
+              alt="Mix Construtora"
               className="h-40 md:h-56 w-auto -ml-4"
               referrerPolicy="no-referrer"
             />
@@ -363,7 +363,7 @@ const Services = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -371,7 +371,7 @@ const Services = () => {
           className="flex flex-wrap justify-center gap-8"
         >
           {services.map((service, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               variants={fadeIn}
               className="card-modern p-10 group relative overflow-hidden flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]"
@@ -407,7 +407,7 @@ const Stats = () => {
       <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
         <BarChart3 size={600} className="text-brand-medium" />
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -433,7 +433,7 @@ const Stats = () => {
               ))}
             </div>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -441,10 +441,10 @@ const Stats = () => {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-[40px] overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000" 
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000"
                 alt="Equipe técnica"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-1000"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -504,7 +504,7 @@ const Portfolio = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {projects.map((project, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -513,10 +513,10 @@ const Portfolio = () => {
               className="group cursor-pointer"
             >
               <div className="aspect-[3/4] overflow-hidden rounded-[32px] bg-mineral mb-8 relative shadow-lg">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
+                  className="w-full h-full object-cover grayscale-0 md:grayscale group-hover:grayscale-0 md:group-hover:scale-110 scale-100 group-hover:scale-105 md:scale-100 transition-all duration-1000"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-brand-medium/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -556,7 +556,7 @@ const TechnicalPillars = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {pillars.map((pillar, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -592,7 +592,7 @@ const Differentials = () => {
   return (
     <section className="py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -605,7 +605,7 @@ const Differentials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
           {items.map((item, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -629,6 +629,53 @@ const Differentials = () => {
 };
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    nome: '',
+    empresa: '',
+    servico: '',
+    descricao: '',
+    telefone: '',
+    email: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, '');
+    value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+    value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+    setFormData({ ...formData, telefone: value });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    const formDataEncoded = new URLSearchParams();
+    formDataEncoded.append('form-name', 'contact');
+    formDataEncoded.append('nome', formData.nome);
+    formDataEncoded.append('empresa', formData.empresa);
+    formDataEncoded.append('servico', formData.servico);
+    formDataEncoded.append('descricao', formData.descricao);
+    formDataEncoded.append('telefone', formData.telefone);
+    formDataEncoded.append('email', formData.email);
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formDataEncoded.toString()
+      });
+      setStatus('success');
+      setFormData({ nome: '', empresa: '', servico: '', descricao: '', telefone: '', email: '' });
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="contato" className="py-32 bg-bg-main diagonal-section">
       <div className="max-w-7xl mx-auto px-6">
@@ -654,7 +701,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="block text-xs uppercase tracking-widest font-bold text-teal-deep/40 mb-2">Telefone / Whatsapp</span>
-                  <p className="text-2xl font-bold text-teal-deep">+55 (98) 8344-4737</p>
+                  <p className="text-2xl font-bold text-teal-deep">(99)98118-9591</p>
                 </div>
               </div>
               <div className="flex items-start gap-6">
@@ -678,52 +725,57 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="bg-white p-12 md:p-16 rounded-[48px] shadow-2xl border border-teal-deep/5"
           >
-            <form className="space-y-8">
+            <form name="contact" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-8">
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden"><input name="bot-field" /></p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className="text-xs uppercase tracking-widest font-bold text-teal-deep/40">Nome Completo</label>
-                  <input type="text" className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium" placeholder="Seu nome" />
+                  <input type="text" name="nome" value={formData.nome} onChange={handleChange} required className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium" placeholder="Seu nome" />
                 </div>
                 <div className="space-y-3">
                   <label className="text-xs uppercase tracking-widest font-bold text-teal-deep/40">Empresa / Órgão</label>
-                  <input type="text" className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium" placeholder="Nome da instituição" />
+                  <input type="text" name="empresa" value={formData.empresa} onChange={handleChange} className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium" placeholder="Nome da instituição" />
                 </div>
               </div>
               <div className="space-y-3">
                 <label className="text-xs uppercase tracking-widest font-bold text-teal-deep/40">Tipo de Serviço</label>
-                <select className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium appearance-none">
-                  <option>Urbanização e Pavimentação</option>
-                  <option>Coleta e Gestão de Resíduos</option>
-                  <option>Obras Civis e Reformas</option>
-                  <option>Terraplanagem e Infraestrutura</option>
+                <select name="servico" value={formData.servico} onChange={handleChange} className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium appearance-none">
+                  <option value="">Selecione um serviço</option>
+                  <option value="Urbanização e Pavimentação">Urbanização e Pavimentação</option>
+                  <option value="Coleta e Gestão de Resíduos">Coleta e Gestão de Resíduos</option>
+                  <option value="Obras Civis e Reformas">Obras Civis e Reformas</option>
+                  <option value="Terraplanagem e Infraestrutura">Terraplanagem e Infraestrutura</option>
                 </select>
               </div>
               <div className="space-y-3">
                 <label className="text-xs uppercase tracking-widest font-bold text-teal-deep/40">Descrição do Projeto</label>
-                <textarea rows={4} className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium resize-none" placeholder="Conte-nos sobre sua necessidade"></textarea>
+                <textarea name="descricao" value={formData.descricao} onChange={handleChange} rows={4} className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium resize-none" placeholder="Conte-nos sobre sua necessidade"></textarea>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className="text-xs uppercase tracking-widest font-bold text-teal-deep/40">Telefone</label>
-                  <input type="tel" className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium" placeholder="(00) 00000-0000" />
+                  <input type="tel" name="telefone" value={formData.telefone} onChange={handlePhoneChange} required minLength={14} className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium" placeholder="(00) 00000-0000" />
                 </div>
                 <div className="space-y-3">
                   <label className="text-xs uppercase tracking-widest font-bold text-teal-deep/40">E-mail</label>
-                  <input type="email" className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium" placeholder="seu@email.com" />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" className="w-full bg-bg-main rounded-2xl px-6 py-4 text-teal-deep focus:ring-2 focus:ring-brand-medium outline-none transition-all font-medium" placeholder="seu@email.com" />
                 </div>
               </div>
               <div className="pt-6">
-                <button className="btn-primary w-full flex items-center justify-center gap-3 text-lg">
-                  Enviar Solicitação
+                <button type="submit" disabled={status === 'loading'} className="btn-primary w-full flex items-center justify-center gap-3 text-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                  {status === 'loading' ? 'Enviando...' : status === 'success' ? 'Enviado com sucesso!' : 'Enviar Solicitação'}
                   <ArrowRight size={20} />
                 </button>
+                {status === 'success' && <p className="text-green-600 text-center mt-4 font-medium">Obrigado! Em breve nossa equipe entrará em contato.</p>}
+                {status === 'error' && <p className="text-red-600 text-center mt-4 font-medium">Erro ao enviar. Tente novamente.</p>}
               </div>
             </form>
           </motion.div>
@@ -740,9 +792,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24">
           <div className="col-span-1 lg:col-span-1">
             <div className="mb-10">
-              <img 
-                src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
-                alt="Mix Construtora" 
+              <img
+                src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png"
+                alt="Mix Construtora"
                 className="h-24 w-auto brightness-0 invert"
                 referrerPolicy="no-referrer"
               />
@@ -776,7 +828,7 @@ const Footer = () => {
             <h4 className="text-xs uppercase tracking-widest font-bold mb-10 text-brand-medium">Contato</h4>
             <ul className="space-y-5 text-base font-medium opacity-60">
               <li className="flex items-center gap-3"><MapPin size={16} className="text-brand-medium" /> Bacabal, MA</li>
-              <li className="flex items-center gap-3"><Phone size={16} className="text-brand-medium" /> +55 98 8344-4737</li>
+              <li className="flex items-center gap-3"><Phone size={16} className="text-brand-medium" /> (99)98118-9591</li>
               <li className="pt-6 text-xs opacity-40">CNPJ: 00.000.000/0001-00</li>
             </ul>
           </div>
@@ -786,7 +838,7 @@ const Footer = () => {
           <p className="text-xs uppercase tracking-widest font-bold text-white/30">
             © 2026 Mix Construtora. Todos os direitos reservados.
           </p>
-          
+
           <div className="flex gap-10">
             <a href="#" className="text-white/30 hover:text-brand-medium transition-colors"><FileText size={20} /></a>
             <a href="#" className="text-white/30 hover:text-brand-medium transition-colors"><ShieldCheck size={20} /></a>
@@ -800,7 +852,7 @@ const Footer = () => {
 const WhatsAppButton = () => {
   return (
     <motion.a
-      href="https://wa.me/559883444737"
+      href="https://wa.me/5599981189591?text=Olá,%20gostaria%20de%20agendar%20uma%20reunião%20com%20a%20Mix%20Construtora"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
@@ -809,12 +861,12 @@ const WhatsAppButton = () => {
       className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl group"
     >
       <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-20 group-hover:opacity-40" />
-      <svg 
-        viewBox="0 0 24 24" 
+      <svg
+        viewBox="0 0 24 24"
         className="w-8 h-8 fill-white"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
       </svg>
     </motion.a>
   );
