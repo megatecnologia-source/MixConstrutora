@@ -28,6 +28,7 @@
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {
@@ -36,11 +37,13 @@
     padding: 0;
     min-width: 320px;
     overflow-x: hidden;
+    max-width: 100vw;
   }
 
   img, video, picture, canvas, svg {
     display: block;
     max-width: 100%;
+    height: auto;
   }
 
   input, button, textarea, select {
@@ -136,6 +139,21 @@
 @media (max-width: 768px) {
   .diagonal-section::before {
     display: none;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .card-modern {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 

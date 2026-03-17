@@ -249,7 +249,7 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="max-w-2xl"
         >
-          <div className="max-w-xl">
+          <div className="max-w-full md:max-w-xl">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -816,7 +816,7 @@ const WhatsAppButton = () => {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.1 }}
-      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl group"
+      className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl group"
       aria-label="Falar no WhatsApp"
     >
       <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-20 group-hover:opacity-40" />
@@ -861,7 +861,7 @@ const BackToTop = () => {
           initial={{ opacity: 0, scale: 0, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0, y: 20 }}
-          className="fixed bottom-6 right-24 md:right-28 z-50 flex flex-col items-center gap-2"
+          className="fixed bottom-6 right-[70px] md:right-28 z-40 flex flex-col items-center gap-2"
         >
           <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-teal-deep/40 bg-white/80 backdrop-blur-sm px-1.5 md:px-2 py-1 rounded-md shadow-sm hidden md:block">Voltar ao topo</span>
           <button
