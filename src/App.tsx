@@ -345,17 +345,17 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="pt-12 md:pt-20 pb-16 md:pb-32 bg-white diagonal-section">
+    <section id="servicos" className="pt-8 md:pt-20 pb-16 md:pb-32 bg-white diagonal-section">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeIn}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 mb-12 md:mb-24 items-start lg:items-end"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-24 mb-8 md:mb-24 items-start lg:items-end"
         >
           <div className="max-w-2xl">
-            <span className="text-brand-medium uppercase tracking-widest text-xs md:text-sm font-bold mb-4 md:mb-6 block">Nossa Expertise</span>
+            <span className="text-brand-medium uppercase tracking-widest text-xs md:text-sm font-bold mb-2 md:mb-6 block">Nossa Expertise</span>
             <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-teal-deep leading-tight">
               Soluções completas em engenharia e infraestrutura.
             </h2>
@@ -364,11 +364,11 @@ const Services = () => {
             <img 
               src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
               alt="Mix Construtora" 
-              className="h-20 md:h-32 lg:h-40 xl:h-56 w-auto -ml-2 md:-ml-4"
+              className="h-16 md:h-32 lg:h-40 xl:h-56 w-auto -ml-1 md:-ml-4"
               referrerPolicy="no-referrer"
             />
-            <p className="text-teal-deep/60 text-[10px] md:text-sm lg:text-base font-medium leading-relaxed max-w-2xl">
-              Na Mix Construtora, desenvolvemos projetos de engenharia que aliam o uso de tecnologias de última geração a uma execução rigorosa e planejada, visando a transformação sustentável do cenário urbano. Nossa atuação é profundamente pauta...
+            <p className="text-teal-deep/60 text-base md:text-sm lg:text-base font-medium leading-relaxed max-w-2xl">
+              Na Mix Construtora, desenvolvemos projetos de engenharia que aliam o uso de tecnologias de última geração a uma execução rigorosa e planejada, visando a transformação sustentável do cenário urbano.
             </p>
           </div>
         </motion.div>
