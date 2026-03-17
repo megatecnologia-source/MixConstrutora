@@ -94,7 +94,7 @@ const Navbar = () => {
           <img 
             src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
             alt="Mix Construtora" 
-            className={`h-14 md:h-20 lg:h-24 w-auto transition-all duration-500 ${scrolled ? 'brightness-100 h-12 md:h-16' : 'brightness-0 invert'}`}
+            className={`h-20 md:h-20 lg:h-24 w-auto transition-all duration-500 ${scrolled ? 'brightness-100 h-12 md:h-16' : 'brightness-0 invert'}`}
             referrerPolicy="no-referrer"
           />
         </div>
@@ -242,7 +242,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-brand-dark/70" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-40">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 pt-20 md:pt-40">
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -254,7 +254,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="inline-block text-white/80 uppercase tracking-[0.3em] md:tracking-[0.4em] text-[10px] md:text-xs font-bold mb-4 md:mb-6"
+              className="inline-block text-white/80 uppercase tracking-[0.3em] md:tracking-[0.4em] text-[10px] md:text-xs font-bold mb-1 md:mb-6"
             >
               Engenharia & Infraestrutura
             </motion.span>
@@ -262,7 +262,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] md:leading-[1.1] mb-6 md:mb-10 text-white"
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] md:leading-[1.1] mb-4 md:mb-10 text-white"
             >
               Engenharia sólida para obras que transformam cidades.
             </motion.h1>
