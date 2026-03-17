@@ -90,11 +90,12 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-bg-main/95 backdrop-blur-md py-3 shadow-sm' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-        <div className="flex items-center ml-0">
+        <div className="flex items-center justify-start h-16 w-auto overflow-hidden">
           <img 
             src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
             alt="Mix Construtora" 
-            className={`h-5 md:h-20 lg:h-24 w-auto transition-all duration-500 ${scrolled ? 'brightness-100 h-5 md:h-16' : 'brightness-0 invert'}`}
+            className={`transition-all duration-500 ${scrolled ? 'brightness-100' : 'brightness-0 invert'}`}
+            style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
             referrerPolicy="no-referrer"
           />
         </div>
@@ -117,29 +118,22 @@ const Navbar = () => {
                 {item.children && <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />}
               </a>
               
-              {item.children && (
-                <AnimatePresence>
-                  {activeDropdown === item.label && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full left-0 mt-4 w-64 bg-white text-teal-deep p-6 shadow-2xl rounded-[24px] border border-teal-deep/5"
-                    >
-                      <div className="flex flex-col gap-4">
-                        {item.children.map((child) => (
-                          <a 
-                            key={child.label} 
-                            href={child.href}
-                            className="text-xs uppercase tracking-widest hover:text-brand-medium hover:translate-x-2 transition-all duration-300 font-bold"
-                          >
-                            {child.label}
-                          </a>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              {item.children && activeDropdown === item.label && (
+                <div 
+                  className="absolute top-full left-0 mt-4 w-64 bg-white text-teal-deep p-6 shadow-2xl rounded-[24px] border border-teal-deep/5 transition-all"
+                >
+                  <div className="flex flex-col gap-4">
+                    {item.children.map((child) => (
+                      <a 
+                        key={child.label} 
+                        href={child.href}
+                        className="text-xs uppercase tracking-widest hover:text-brand-medium hover:translate-x-2 transition-all duration-300 font-bold"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               )}
             </div>
           ))}
@@ -163,58 +157,50 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-brand-dark text-white z-50 px-4 py-6 flex flex-col safe-area-pt"
-          >
-            <div className="flex justify-between items-center">
-              <span className="font-display font-bold text-2xl uppercase" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>Mix</span>
-              <button onClick={() => setIsOpen(false)} className="touch-target flex items-center justify-center" aria-label="Fechar menu"><X size={28} /></button>
-            </div>
-            <div className="flex flex-col gap-4 mt-8 overflow-y-auto pb-8">
-              {navItems.map((item) => (
-                <div key={item.label} className="flex flex-col gap-2">
-                  <a 
-                    href={item.href} 
-                    onClick={() => !item.children && setIsOpen(false)}
-                    className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tighter touch-target flex items-center"
-                    style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
-                  >
-                    {item.label}
-                  </a>
-                  {item.children && (
-                    <div className="flex flex-col gap-2 pl-4 border-l-2 border-brand-medium/30">
-                      {item.children.map((child) => (
-                        <a 
-                          key={child.label} 
-                          href={child.href}
-                          onClick={() => setIsOpen(false)}
-                          className="text-lg font-medium text-white/80 touch-target"
-                          style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
-                        >
-                          {child.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <a 
-                href="#contato"
-                onClick={() => setIsOpen(false)}
-                className="btn-primary bg-white !text-brand-dark mt-4 text-center"
-              >
-                Falar com um Consultor
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-brand-dark text-white z-50 px-6 py-8 flex flex-col safe-area-pt overflow-hidden"
+        >
+          <div className="flex justify-between items-center mb-10">
+            <span className="font-display font-bold text-3xl uppercase tracking-tighter">Mix</span>
+            <button onClick={() => setIsOpen(false)} className="touch-target flex items-center justify-center" aria-label="Fechar menu"><X size={32} /></button>
+          </div>
+          <div className="flex flex-col gap-8 overflow-y-auto pb-20">
+            {navItems.map((item) => (
+              <div key={item.label} className="flex flex-col gap-4">
+                <a 
+                  href={item.href} 
+                  onClick={() => !item.children && setIsOpen(false)}
+                  className="text-3xl font-display font-bold uppercase tracking-tight touch-target flex items-center"
+                >
+                  {item.label}
+                </a>
+                {item.children && (
+                  <div className="flex flex-col gap-3 pl-4 border-l-2 border-brand-medium/30">
+                    {item.children.map((child) => (
+                      <a 
+                        key={child.label} 
+                        href={child.href}
+                        onClick={() => setIsOpen(false)}
+                        className="text-xl font-medium text-white/80 touch-target"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+            <a 
+              href="#contato"
+              onClick={() => setIsOpen(false)}
+              className="btn-primary bg-white !text-brand-dark mt-6 text-center py-5 text-base"
+            >
+              Falar com um Consultor
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
@@ -230,7 +216,6 @@ const Hero = () => {
           muted
           playsInline
           className="w-full h-full object-cover"
-          poster="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png"
         >
           <source 
             src="https://res.cloudinary.com/dplhygs4v/video/upload/v1773694818/VIDEO_HERO_SITE_MIX_CONSTRUTORA_-_FERNANDO_1_crlai1.mp4" 
@@ -242,7 +227,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-brand-dark/70" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 pt-16 md:pt-40">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 pt-32 md:pt-40">
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -364,7 +349,8 @@ const Services = () => {
             <img 
               src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
               alt="Mix Construtora" 
-              className="h-16 md:h-32 lg:h-40 xl:h-56 w-auto -ml-1 md:-ml-4"
+              className="-ml-1 md:-ml-4"
+              style={{ height: '64px', width: 'auto' }}
               referrerPolicy="no-referrer"
             />
             <p className="text-teal-deep/60 text-base md:text-sm lg:text-base font-medium leading-relaxed max-w-2xl">
@@ -805,7 +791,8 @@ const Footer = () => {
               <img 
                 src="https://res.cloudinary.com/dplhygs4v/image/upload/v1773698420/SITE_LOGO_MIX_CONSTRUTORA_-_FERNANDO_v2hndi.png" 
                 alt="Mix Construtora" 
-                className="h-16 md:h-20 lg:h-24 w-auto brightness-0 invert"
+                className="brightness-0 invert"
+                style={{ height: '64px', width: 'auto' }}
                 referrerPolicy="no-referrer"
               />
             </div>
